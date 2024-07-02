@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nodsoft.Mirador.Functions", "Nodsoft.Mirador.Functions\Nodsoft.Mirador.Functions.csproj", "{B3A11278-A3AE-4BFC-9B90-A8DD01B4ECDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3A11278-A3AE-4BFC-9B90-A8DD01B4ECDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A11278-A3AE-4BFC-9B90-A8DD01B4ECDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A11278-A3AE-4BFC-9B90-A8DD01B4ECDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A11278-A3AE-4BFC-9B90-A8DD01B4ECDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

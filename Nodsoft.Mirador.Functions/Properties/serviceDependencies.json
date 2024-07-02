@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets"
+    },
+    "cosmosdb1": {
+      "type": "cosmosdb",
+      "connectionId": "cosmos"
+    },
+    "appInsights1": {
+      "type": "appInsights",
+      "dynamicId": null
+    }
+  }
+}
