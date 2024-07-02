@@ -30,7 +30,7 @@ public sealed class PingTrigger : IDisposable
 #if DEBUG
         [TimerTrigger("0 * * * * *", RunOnStartup = true)]
 #else
-        [TimerTrigger("* */15 * * * *")]
+        [TimerTrigger("0 */15 * * * *")]
 #endif        
         TimerInfo myTimer,
         CancellationToken ct = default
