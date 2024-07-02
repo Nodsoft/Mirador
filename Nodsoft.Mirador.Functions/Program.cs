@@ -11,7 +11,7 @@ using Nodsoft.Mirador.Functions;
 using Nodsoft.Mirador.Functions.Services;
 using Throw;
 
-string? miradorVersion = typeof(PingTrigger).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+string? miradorVersion = typeof(PingTrigger).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+').First();
 TokenCredential azCred = new DefaultAzureCredential();
 
 IHost host = new HostBuilder()
