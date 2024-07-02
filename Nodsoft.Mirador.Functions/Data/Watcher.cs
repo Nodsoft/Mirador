@@ -8,9 +8,19 @@ namespace Nodsoft.Mirador.Functions.Data;
 public class Watcher
 {
     /// <summary>
+    /// The unique identifier for the watcher.
+    /// </summary>
+    public Guid Id { get; set; }
+    
+    /// <summary>
     /// Display name for the watcher.
     /// </summary>
     public string Name { get; set; }
+    
+    /// <summary>
+    /// Defines if the watcher is disabled.
+    /// </summary>
+    public bool Disabled { get; set; }
     
     /// <summary>
     /// The last known status of the monitored resource.
@@ -27,20 +37,20 @@ public class Watcher
     /// </summary>
     /// <seealso cref="LastStatus"/>
     public DateTimeOffset LastChange { get; set; }
-    
+
     /// <summary>
     /// The configurations for monitoring the resource.
     /// </summary>
     /// <remarks>
     /// Watcher will report the worst status of all ping configurations.
     /// </remarks>
-    public List<WatcherPingConfig> PingConfigs { get; set; }
-    
+    public WatcherPingConfig[] PingConfigs { get; set; } = [];
+
     /// <summary>
     /// The configurations for reporting the watcher's state.
     /// </summary>
     /// <remarks>
     /// Watcher will report to all report configurations.
     /// </remarks>
-    public List<WatcherReportConfig> ReportConfigs { get; set; }
+    public WatcherReportConfig[] ReportConfigs { get; set; } = [];
 }
