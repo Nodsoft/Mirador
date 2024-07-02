@@ -5,7 +5,7 @@ namespace Nodsoft.Mirador.Functions.Data;
 /// <summary>
 /// Defines a periodically monitored remote HTTP resource, and associated state.
 /// </summary>
-public class Watcher
+public sealed class Watcher
 {
     /// <summary>
     /// The unique identifier for the watcher.

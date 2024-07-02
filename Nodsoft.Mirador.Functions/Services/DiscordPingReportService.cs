@@ -58,14 +58,14 @@ public sealed class DiscordPingReportService
             );
         }
 
-        if (reportConfig.MessageId is 0)
+        if (reportConfig.MessageId is null or "")
         {
             ulong mid = await webhookClient.SendMessageAsync(embeds: new[] { embedBuilder.Build() });
-            reportConfig.MessageId = mid;
+            reportConfig.MessageId = mid.ToString();
         }
         else
         {
-            await webhookClient.ModifyMessageAsync(reportConfig.MessageId, p => p.Embeds = new[] { embedBuilder.Build() });
+            await webhookClient.ModifyMessageAsync(ulong.Parse(reportConfig.MessageId), p => p.Embeds = new[] { embedBuilder.Build() });
         }
     }
     

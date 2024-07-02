@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the monitoring configuration for a <see cref="Watcher"/>.
 /// </summary>
-public class WatcherPingConfig
+public sealed class WatcherPingConfig
 {
     /// <summary>
     /// The URI of the resource to monitor.
