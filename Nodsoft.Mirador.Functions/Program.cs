@@ -23,7 +23,9 @@ IHost host = new HostBuilder()
             new()
             {
                 SerializerOptions = new() { PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase },
+#if DEBUG
                 ServerCertificateCustomValidationCallback = (_, _, _) => true
+#endif
             })
         );
 
