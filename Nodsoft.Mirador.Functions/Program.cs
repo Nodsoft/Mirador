@@ -1,4 +1,6 @@
 using System.Reflection;
+using Azure.Core;
+using Azure.Identity;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +12,7 @@ using Nodsoft.Mirador.Functions.Services;
 using Throw;
 
 string? miradorVersion = typeof(PingTrigger).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+TokenCredential azCred = new DefaultAzureCredential();
 
 IHost host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
@@ -19,7 +22,12 @@ IHost host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
 
         services.AddSingleton<CosmosClient>(s => new(
+#if DEBUG
             s.GetRequiredService<IConfiguration>().GetConnectionString("cosmos").ThrowIfNull(),
+#else
+            accountEndpoint: Environment.GetEnvironmentVariable("AZURE_COSMOS_RESOURCEENDPOINT")!,
+            tokenCredential: azCred,
+#endif            
             new()
             {
                 SerializerOptions = new() { PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase },
