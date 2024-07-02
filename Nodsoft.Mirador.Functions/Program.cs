@@ -44,7 +44,8 @@ IHost host = new HostBuilder()
             .ConfigureHttpClient(client =>
             {
                 client.DefaultRequestHeaders.UserAgent.ParseAdd($"NSYS-Mirador/{miradorVersion} (+https://github.com/Nodsoft/Mirador; mailto:admin+mirador@nodsoft.net)");
-            });
+            })
+            .AddStandardResilienceHandler();
 
     })
     .Build();
